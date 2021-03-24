@@ -1,8 +1,8 @@
 import React from 'react';
-
+import './styles/hello.css';
 const HelloWorld = () =>{
     return(
-        <h1>Hello</h1>
+        <h1>Hola como estas</h1>
     )
 }
 
