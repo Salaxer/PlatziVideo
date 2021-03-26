@@ -16,8 +16,8 @@ const Header = () =>{
                 <p>Perfil</p>
             </div>
             <ul>
-                <li><Link to="/ee">Cuenta</Link></li>
-                <li><Link to="/we">Cerrar Sesión</Link></li>
+                <li><Link to="/login">Inicia sesión</Link></li>
+                <li><Link to="/signup">Registrate</Link></li>
             </ul>
             </div>
         </header>
