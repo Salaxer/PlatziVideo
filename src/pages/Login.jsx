@@ -19,7 +19,7 @@ const Login = () =>{
                         <label>
                             <input type="checkbox" id="cbox1" value="first_checkbox"/>Recuérdame
                         </label>
-                        <Link href="/">Olvidé mi contraseña</Link>
+                        <Link to="/">Olvidé mi contraseña</Link>
                         </div>
                     </form>
                     <section className="Forms__container--social-media">
