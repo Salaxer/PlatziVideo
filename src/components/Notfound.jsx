@@ -1,12 +1,14 @@
 import React from 'react'
+import './styles/NotFound.scss';
 function Notfound(){
     return(
         <React.Fragment>
-            <div className="Badges__hero">
-                <div className="Badges__container">
-                    <img style={{width: '50%'}} className="Badges__hero--img" src="https://http.cat/404.jpg" alt=""/>
-                </div>
-            </div>
+            <section className="error">
+                <section className="error__container">
+                    <h2 className="error__container--title">404</h2>
+                    <p>Página no encontrada</p>
+                </section>
+            </section>
         </React.Fragment>
     )
 }
