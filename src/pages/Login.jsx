@@ -1,11 +1,14 @@
 import React, {useState} from 'react';
+import { Link } from 'react-router-dom';
+import { loginRequest } from '../actions';
+import {connect} from 'react-redux';
+
 import './styles/Forms.scss';
 
 import logoGoogle from '../assets/static/google-icon.png';
 import LogoTwitter from '../assets/static/twitter-icon.png';
-import { Link } from 'react-router-dom';
 
-const Login = () =>{
+const Login = (props) =>{
     const [form, setValues] = useState({
         email: '',
     })
@@ -17,7 +20,8 @@ const Login = () =>{
     }
     const handleSubmit = e =>{
         e.preventDefault();
-        console.log(form);
+        props.loginRequest(form);
+        props.history.push('/');
     }
     return(
         <React.Fragment>
@@ -57,5 +61,8 @@ const Login = () =>{
         </React.Fragment>
     );
 }
+const mapDispatchToProps = {
+    loginRequest,
+}
 
-export default Login;
+export default connect(null, mapDispatchToProps)(Login);
