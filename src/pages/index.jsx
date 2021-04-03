@@ -1,26 +1,32 @@
 import React, { useState } from 'react';
+import {connect} from 'react-redux';
 import Search from '../components/Search'
 import Carousel from '../components/Carousel'
 import useInitialState from '../hooks/useInitialState';
 
-const API = 'http://localhost:3001/initialState';
+// const API = 'http://localhost:3001/initialState';
 
-const Index = () =>{
-    const [loading, setLoading] = useState(true);
-    const videos = useInitialState(API,setLoading);
-    
+const Index = ({myList, trends, originals}) =>{
+    // const [loading, setLoading] = useState(true);
+    // const videos = useInitialState(API,setLoading);
+    // if(loading){
+    //     return <h3 className="categories__title">Cargando....</h3>
+    // }
 
-    if(loading){
-        return <h3 className="categories__title">Cargando....</h3>
-    }
     return (
         <React.Fragment>
             <Search/>
-            <Carousel list={videos.mylist} titleCarrousel="Mi lista"/>
-            <Carousel list={videos.trends} titleCarrousel="Tendencias"/>
-            <Carousel list={videos.originals} titleCarrousel="Originales de PlatziVideo"/>
+            <Carousel list={myList} titleCarrousel="Mi lista"/>
+            <Carousel list={trends} titleCarrousel="Tendencias"/>
+            <Carousel list={originals} titleCarrousel="Originales de PlatziVideo"/>
         </React.Fragment>
     )
 }
-
-export default Index;
+const mapStateToProps = (state) =>{
+    return{
+        myList: state.myList,
+        trends: state.trends,
+        originals: state.originals,
+    };
+}
+export default connect(mapStateToProps, null)(Index);

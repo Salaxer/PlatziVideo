@@ -6,6 +6,7 @@ import LogoTwitter from '../assets/static/twitter-icon.png';
 import { Link } from 'react-router-dom';
 
 const Login = () =>{
+
     return(
         <React.Fragment>
             <section className="Forms">
@@ -30,7 +31,7 @@ const Login = () =>{
                 </section>
             </section>
         </React.Fragment>
-    )
+    );
 }
 
 export default Login;
