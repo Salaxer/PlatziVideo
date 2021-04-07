@@ -1,9 +1,12 @@
 import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
+import {connect} from 'react-redux';
+import {signUpRequest} from '../actions';
+
 import './styles/Forms.scss';
 
 
-const Signup = () =>{
+const Signup = (props) =>{
     const [form, setValues] = useState({
         email: '',
         name: '',
@@ -18,6 +21,8 @@ const Signup = () =>{
     const handleSubmit = e =>{
         e.preventDefault();
         console.log(form);
+        props.signUpRequest(form);
+        props.history.push('/');
     }
     return(
         <React.Fragment>
@@ -54,5 +59,7 @@ const Signup = () =>{
         </React.Fragment>
     )
 }
-
-export default Signup;
+const mapDispatchToProps = {
+    signUpRequest,
+  };
+export default connect(null, mapDispatchToProps)(Signup);

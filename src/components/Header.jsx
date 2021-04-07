@@ -1,6 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import {connect} from 'react-redux';
+// Todas las funciones que quiero recivir de mis actions
+// Tengo que importarlas antes.
 import {logoutRequest} from '../actions'
 
 import gravatar from '../utils/gravatar';
@@ -16,8 +18,9 @@ const Header = (props) =>{
     const handleLogout = () =>{
         props.logoutRequest({})
     }
+    const headerClass = (useLocation().pathname === '/register' || useLocation().pathname === '/login') ? 'greenHeader' : '';
     return (
-        <header className="header">
+        <header className={`header ${headerClass}`}>
             <Link to="/"><img className="header__img" src={logo} alt="Platzi Video"/></Link>
             <div className="header__menu">
             <div className="header__menu--profile">
@@ -44,11 +47,16 @@ const Header = (props) =>{
         </header>
     )
 }
+// aqui recivo la informacion que quiero del estado
+// en este casi estoy reciviendo todo lo que el usuario contiene
 const mapStateToProps = state => {
     return{
         user: state.user
     }
 }
+
+// aqui recivo los props como funciones, pero ademas tengo que importarlas
+// Para mandar cosas al estado necesito hacer que la funcion reciva cosas
 const mapDispatchToProps = {
     logoutRequest,
 }

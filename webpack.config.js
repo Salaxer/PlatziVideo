@@ -7,7 +7,9 @@ module.exports={
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: '[name].[fullhash].js'
+        filename: '[name].[fullhash].js',
+        publicPath: '/',
+        // Con publicPath lo que hacemos es que me retorne todo los bundles de mi path principal
     },
     devServer: {
         contentBase: path.join(__dirname, 'dist'),
