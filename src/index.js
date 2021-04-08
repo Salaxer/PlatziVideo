@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './routes/App'
-import {createStore} from 'redux';
+import {createStore, compose} from 'redux';
 import { Provider } from 'react-redux';
 import reducer from './reducers'
 
@@ -174,8 +174,12 @@ const initialState = {
     }
     ]
 }
+// esta linea es para poder cargar lo que hay en redux con devtools en chrome
 
-const store = createStore(reducer, initialState)
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+
+const store = createStore(reducer, initialState, composeEnhancers());
 
 const container = document.getElementById('app');
 // ReactDOM.render(__qué__, __dónde__);

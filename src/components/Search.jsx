@@ -26,15 +26,19 @@ const Search = (props) =>{
             type="text" 
             className="input" 
             placeholder="Buscar..."/>
-        <div className="main-search">{!search.search ? 
-        ''
-        :
-        result.map((item) => {
-            return <CarouselItem
-            key={item.id}
-            {...item}
-        />
-        })}
+        <div className="main-search">
+            <div className="carousel__container">
+                {!search.search ? 
+                ''
+                :
+                    result.map((item) => {
+                        return <CarouselItem
+                                    key={item.id}
+                                    {...item}
+                                />
+                    })
+                }
+            </div>
         </div>
     </section>
     )
